@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HRUNNIZ</title>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 10px 10px;
+        }
+
+        header h1 {
+            font-size: 40px;
+            color: #9b00ff;
+            text-shadow: 0 0 10px #9b00ff, 0 0 20px #9b00ff;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section h2 {
+            color: #9b00ff;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .section p, .section a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .footer {
+            background-color: #000;
+            text-align: center;
+            padding: 10px;
+            font-size: 10px;
+            color: #777;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .socials a {
+            color: #9b00ff;
+            font-size: 12px;
+            text-shadow: 0 0 5px #9b00ff;
+        }
+
+        .navbar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #111;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            border-top: 1px solid #333;
+        }
+
+        .navbar a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .navbar a.active, .navbar a:hover {
+            color: #9b00ff;
+        }
+    </style>
+<script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+
+            const links = document.querySelectorAll('.navbar a');
+            links.forEach(link => {
+                link.classList.remove('active');
+            });
+            document.getElementById('nav-' + sectionId).classList.add('active');
+        }
+
+        window.onload = function() {
+            showSection('home');
+        };
+    </script>
+</head>
+<body>
+<header>
+<h1>HRUNNIZ</h1>
+</header>
+<div class="content">
+<div class="section active" id="home">
+<h2>Quem é Hrunniz?</h2>
+<p>Hrunniz é um artista independente brasileiro que vem se destacando na cena do trap com sua autenticidade, som pesado e presença forte nas redes sociais. Ele ganhou atenção por movimentar a cena com lançamentos únicos, tretas marcantes e um estilo direto que chama o público pra perto.</p>
+</div>
+<div class="section" id="previas">
+<h2>Prévias Exclusivas</h2>
+<p>Ouça trechos inéditos das próximas músicas que ainda não foram lançadas. Fique por dentro antes de todo mundo.</p>
+</div>
+<div class="section" id="noticias">
+<h2 style="color:#9b00ff;">05/05/2025 - Treta com a Mob JGF</h2>
+<p>O próprio "cara do feat" espalhou que Hrunniz havia traído ele após dar fama, dizendo que foi abandonado. Mas isso era mentira — a história não era sobre Hrunniz, e sim sobre outro cara. A mob atacou Hrunniz, e ele revidou expondo capas, sons e imagens ruins do grupo, quase levando eles à falência. Hrunniz saiu como vencedor, ganhou hype e movimentou a cena.</p>
+<h2 style="color:#9b00ff;">10/06/2025 - Evolução do Estúdio</h2>
+<p>No próximo mês, Hrunniz promete evolução no estúdio e muitos lançamentos pesados. O que vem por aí é grande!</p>
+</div>
+<div class="section" id="capas">
+<h2>Capas Exclusivas</h2>
+<p>Veja aqui artes únicas e capas alternativas que só estão disponíveis neste app. Algumas delas contêm mensagens escondidas.</p>
+</div>
+<div class="section" id="secreto">
+<h2>Conteúdo Secreto</h2>
+<p>Insira o código fornecido para desbloquear arquivos especiais, músicas ocultas ou partes do enigma artístico de Hrunniz.</p>
+<h2>Como pegar os códigos secretos?</h2>
+<p>Hrunniz solta os códigos nos storys, ou até em capas ou fotos escondidos. Fica atento porque é tudo muito bem camuflado!</p>
+
+<input id="codigoInput" placeholder="Digite o código aqui" style="margin-top: 10px; padding: 10px; width: 100%; background-color: #111; border: 1px solid #9b00ff; color: #fff; font-family: 'Orbitron', sans-serif;" type="text"/>
+<button onclick="verificarCodigo()" style="margin-top: 10px; padding: 10px; width: 100%; background-color: #9b00ff; color: white; font-weight: bold; border: none; cursor: pointer;">Verificar</button>
+<p id="mensagemCodigo" style="margin-top: 10px;"></p>
+<script>
+    function verificarCodigo() {
+        const input = document.getElementById("codigoInput").value.trim().toLowerCase();
+        const msg = document.getElementById("mensagemCodigo");
+        if (input === "taefyksancfo") {
+            msg.innerHTML = "Parabéns! Você desbloqueou o conteúdo secreto!";
+            msg.style.color = "#00ff88"; msg.style.textShadow = "0 0 10px #00ff88, 0 0 20px #00ff88";
+            window.location.href = "https://www.mediafire.com/file/tw9yxb8egt2ja5t/feat_hrunniz_nasky_exclusivo_grande.pdf/file";
+        } else {
+            msg.innerHTML = "Código inválido. Tente novamente.";
+            msg.style.color = "#ff1a1a"; msg.style.textShadow = "0 0 10px #ff1a1a, 0 0 20px #ff1a1a";
+        }
+    }
+</script>
+</div>
+</div>
+<div class="footer">
+<p style="font-size:11px;">Siga Hrunniz em todas as redes sociais:</p>
+<div class="socials">
+<a href="https://youtube.com/@hrunnizofc?feature=shared" target="_blank">YouTube</a>
+<a href="https://www.tiktok.com/@hrunniz" target="_blank">TikTok</a>
+<a href="https://www.instagram.com/hrunniz" target="_blank">Instagram</a>
+</div>
+<p style="margin-top: 8px;">© by Hrunniz 2025</p>
+</div>
+<div class="navbar">
+<a href="#" id="nav-home" onclick="showSection('home')">Home</a>
+<a href="#" id="nav-previas" onclick="showSection('previas')">Prévias</a>
+<a href="#" id="nav-noticias" onclick="showSection('noticias')">Notícias</a>
+<a href="#" id="nav-capas" onclick="showSection('capas')">Capas</a>
+<a href="#" id="nav-secreto" onclick="showSection('secreto')">Secreto</a>
+</div>
+</body>
+</html>
